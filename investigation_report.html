@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Profile Management System</title>
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/select2.css">
+  <link href="assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+  <script src="essential/js/jquery.js"></script>
+  <script src="essential/js/bootstrap-datepicker.js">
+  </script>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a herf="index.html" class="sidebar-brand brand-logo" href="index.html" style="color: white;">NTMC PMS</a>
+        <a class="sidebar-brand brand-logo-mini" href="index.html" style="color: white">NP</a>
+      </div>
+      <ul class="nav" style="position: fixed;">
+        <li class="nav-item profile">
+          <div class="profile-desc">
+            <div class="profile-pic">
+              <div class="count-indicator">
+                <img class="img-xs rounded-circle " src="assets/images/logo.png" alt="">
+                <span class="count bg-success"></span>
+              </div>
+              <div class="profile-name">
+                <h5 class="mb-0 font-weight-normal">PMS</h5>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="nav-item nav-category">
+          <span class="nav-link" style="color: whi;">Options</span>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="index.html">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-pr" aria-expanded="false"
+            aria-controls="ui-basic-pr">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-multiple-plus"></i>
+            </span>
+            <span class="menu-title">Profile</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-pr">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="add_profile.html">Add New Profile</a></li>
+              <li class="nav-item"> <a class="nav-link" href="manage_profile.html">Manage Profile</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-re" aria-expanded="false"
+            aria-controls="ui-basic-re">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-multiple-plus"></i>
+            </span>
+            <span class="menu-title">Investigation Report</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-re">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="investigation_report.html">Add New Report</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="manage_report.html">Manage Report</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-cg" aria-expanded="false"
+            aria-controls="ui-basic-cg">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-search"></i>
+            </span>
+            <span class="menu-title">Catagory</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-cg">
+            <ul class="nav flex-column sub-menu">
+
+              <li class="nav-item"> <a class="nav-link" href="manage_category.html">See All
+                  Catagory</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-ov-re" aria-expanded="false"
+            aria-controls="ui-basic-ov-re">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-multiple-plus"></i>
+            </span>
+            <span class="menu-title">Report</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-ov-re">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="overall_report.html">Overall Report</a></li>
+              <li class="nav-item"> <a class="nav-link" href="agency_report.html">Agency Wise Report</a></li>
+              <li class="nav-item"> <a class="nav-link" href="user_report.html">User Wise Report</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo-mini" href="index.html" style="color: white;">NP</a>
+        </div>
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav w-100">
+            <li class="nav-item w-100">
+              <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                <input type="text" class="form-control" placeholder="Search For Anything">
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+
+            <li class="nav-item nav-settings d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-view-grid"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown border-left">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown"
+                aria-expanded="false">
+                <i class="mdi mdi-email"></i>
+                <span class="count bg-success"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0">Messages</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="assets/images/a.png" alt="image" class="rounded-circle profile-pic">
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
+                    <p class="text-muted mb-0"> 1 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="assets/images/a.png" alt="image" class="rounded-circle profile-pic">
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
+                    <p class="text-muted mb-0"> 15 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="assets/images/a.png" alt="image" class="rounded-circle profile-pic">
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+                    <p class="text-muted mb-0"> 18 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">4 new messages</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown border-left">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                data-toggle="dropdown">
+                <i class="mdi mdi-bell"></i>
+                <span class="count bg-danger"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0">Notifications</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Event today</p>
+                    <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Settings</p>
+                    <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-link-variant text-warning"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Launch Admin</p>
+                    <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">See all notifications</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                <div class="navbar-profile">
+                  <img class="img-xs rounded-circle" src="assets/images/a.png" alt="">
+                  <p class="mb-0 d-none d-sm-block navbar-profile-name">User 01
+                  </p>
+                  <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="profileDropdown">
+                <h6 class="p-3 mb-0">Profile</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Account Settings</p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-plus-circle"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Log out</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-format-line-spacing"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <!--frommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm ইনভেস্টিগেশন Designnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn-->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title" style="color: yellow;"> ইনভেস্টিগেশন রিপোর্ট </h3>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="row">
+            <!--ক্যাটেগরি ও পরিচিতি-->
+
+
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+
+                  <form class="form-sample">
+                    <!--p class="card-description"> Personal info </p-->
+
+                    <!--ক্যাটাগরি-->
+                    <div class="row">
+
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">ইনভেস্টিগেশন টাইপ <span
+                              class="required">*</span></label>
+                          <div class="col-sm-10">
+                            <select class="form-control" style="border: 1px solid rgba(71, 164, 71, 0.5);
+                            background-color: #ffffff;
+                            color: black;" id="SelExample">
+                              <option value="0">---নির্বাচন করুন---</option>
+                              <option value="1">Politician</option>
+                              <option value="2">Activist</option>
+                              <option value="3">Criminal</option>
+                              <option value="4">Propagandist</option>
+                              <option value="5">BBM</option>
+                              <option value="6">Fraud</option>
+                              <option value="7">Ecommerec</option>
+                              <option value="8">Political</option>
+                              <option value="9">Escort</option>
+                              <option value="10">Othersi</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--ক্যাটাগরি শেষ-->
+
+                    <!--বিবরন ও টাইটেল-->
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label"> ইনভেস্টিগেশন টাইটেল <span
+                              class="required">*</span></label>
+                          <div class="col-sm-10">
+                            <textarea type="text" class="form-control" rows="3" style="border: 1px solid rgba(71, 164, 71, 0.5);
+                            background-color: #ffffff;
+                            color: black;border-radius: 8px;"> </textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">বিবরণ</label>
+
+                          <div class="col-sm-10" style="">
+
+                            <div id="snow-editor-in" style="height: 300px;">
+
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+
+            <!--বিবরন ও টাইটেল শেষ-->
+
+            <!--অন্যান্য তথ্য-->
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+
+                  <h4 class="card-title" style="
+                    font-size: 15px;
+                    color: #00dcff;
+                    text-decoration: underline;">অন্যান্য তথ্য</h4>
+
+                  <div class="row others-info-after-add-more">
+                    <div class="col-md-12">
+                      <div class="form-group row">
+                        <div class="col-sm-2">
+                          <input type="text" class="form-control" placeholder="অন্যান্য" style="border: 1px solid rgba(71, 164, 71, 0.5);
+                          background-color: #ffffff;
+                          color: black;border-radius: 8px;" />
+                        </div>
+
+                        <div class="col-sm-10">
+                          <div id="snow-editor-in-oth-info" style="height: 300px;">
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Add more Fields -->
+                      <div class="others-info-copy d-none">
+                        <div class="others-info-control-group" style="margin-top:10px">
+                          <div class="form-group row">
+                            <div class="col-sm-2">
+                              <input type="text" class="form-control" placeholder="অন্যান্য" style="border: 1px solid rgba(71, 164, 71, 0.5);
+                              background-color: #ffffff;
+                              color: black; border-radius: 8px;" />
+                            </div>
+
+                            <div class="col-sm-10">
+                              <form>
+                                <div id="snow-editor-in-oth-info-rmv" style="height: 300px;">
+                                </div>
+                                <button class="btn btn-danger others-info-remove mt-2" type="button"><i
+                                    class="mdi mdi-window-close"></i></button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-success others-info-add-more mt-2" type="button"><i
+                        class="mdi mdi-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--add field-->
+            <script type="text/javascript">
+
+              $(document).ready(function () {
+
+                $(".others-info-add-more").click(function () {
+                  var html = $(".others-info-copy").html();
+                  $(".others-info-after-add-more").after(html);
+                });
+
+                $("body").on("click", ".others-info-remove", function () {
+                  $(this).parents(".others-info-control-group").remove();
+                });
+
+              });
+            </script>
+            <!--অন্যান্য তথ্য শেষ-->
+
+
+            <!--প্রয়োজনীয় তথ্য-->
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title" style="
+                    font-size: 15px;
+                    color: #00dcff;
+                    text-decoration: underline;">সংবাদ মাধ্যম ও সোশ্যাল মিডিয়ার প্রামাণিক তথ্য </h4>
+                  <div class="row after-add-more-ev">
+                    <div class="col-md-6">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">প্রয়োজনীয় তথ্য সমূহ</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" placeholder="প্রয়োজনীয় তথ্য সমূহ" style="border: 1px solid rgba(71, 164, 71, 0.5);
+                          background-color: #ffffff;
+                          color: black;border-radius: 8px;" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group row d-flex gap-8">
+                        <div class="input-file-container">
+                          <form>
+                            <div>
+                              <input type="file" style="border: 4px solid white; border-radius: 20px;">
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Add more Fields (প্রয়োজনীয় তথ্য সমূহ) -->
+                  <div class="copy-ev d-none">
+                    <div class="control-group-ev" style="margin-top:10px">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">প্রয়োজনীয় তথ্য সমূহ</label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control" placeholder="প্রয়োজনীয় তথ্য সমূহ" style="border: 1px solid rgba(71, 164, 71, 0.5);
+                              background-color: #ffffff;
+                              color: black; border-radius: 8px;" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group row d-flex">
+                            <div class="input-file-container">
+                              <form>
+                                <div>
+                                  <input type="file" style="border: 4px solid white; border-radius: 20px;">
+                                </div>
+                              </form>
+                            </div>
+                            <button class="btn btn-danger remove-ev ml-2" type="button"><i
+                                class="mdi mdi-window-close"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <script>
+                    $(document).ready(function () {
+
+                      $(".add-more-ev").click(function () {
+                        var html = $(".copy-ev").html();
+                        $(".after-add-more-ev").after(html);
+                      });
+
+                      $("body").on("click", ".remove-ev", function () {
+                        $(this).parents(".control-group-ev").remove();
+                      });
+
+                    });
+                  </script>
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-success add-more-ev ml-2" type="button"><i
+                        class="mdi mdi-plus"></i></button>
+                  </div>
+                  <!-- Add more Fields (প্রয়োজনীয় তথ্য সমূহ) শেষ -->
+
+                </div>
+              </div>
+            </div>
+            <!--প্রয়োজনীয় তথ্য শেষ-->
+
+            <!--ইনভেস্টিগেশন স্ট্যাটাস-->
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title" style="
+                    font-size: 15px;
+                    color: #00dcff;
+                    text-decoration: underline;">ইনভেস্টিগেশন স্ট্যাটাস</h4>
+                  <form class="form-sample">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label"> ইনভেস্টিগেশন তৈরির তারিখ <span
+                              class="required">*</span></label>
+                          <div class="col-sm-10">
+                            <input type="text" class="date form-control" style="width: 200px; border: 1px solid rgba(71, 164, 71, 0.5);
+                            background-color: #ffffff;
+                            color: black;border-radius: 8px;" placeholder="ইনভেস্টিগেশন তৈরির তারিখ" />
+
+                            <script type="text/javascript">
+                              $(".date").datepicker({
+                                format: "dd-mm-yyyy",
+                              });
+                            </script>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label"> ইনভেস্টিগেশন রিপোর্ট নাম্বার <span
+                              class="required">*</span></label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" style="width: 200px; border: 1px solid rgba(71, 164, 71, 0.5);
+                            background-color: #ffffff;
+                            color: black;border-radius: 8px;" placeholder="সিরিয়াল নাম্বার" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group row">
+                          <label class="col-sm-2 col-form-label"> কমপ্লিট রিপোর্ট <span
+                              class="required">*</span></label>
+                          <div class="col-sm-8">
+                            <label class="container">
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--প্রোফাইল স্ট্যাটাস শেষ-->
+
+
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Design and Developed By
+              <img src="assets/images/ops.png" style="height: 20px;"></span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Copyright © 2019 - 2023 <a
+                href="http://ntmc.gov.bd/">NTMC.</a> All rights reserved</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="assets/vendors/select2/select2.min.js"></script>
+  <script src="assets/js/misc.js"></script>
+  <script src="assets/js/search-dropdown.js"></script>
+  <script src="assets/libs/quill/quill.min.js"></script>
+  <script src="assets/js/form-quilljs.init.js"></script>
+  <script src="assets/libs/dropify/dropify.min.js"></script>
+  <script src="assets/js/form-fileuploads.init.js"></script>
+  <script src="assets/js/hoverable-collapse.js"></script>
+
+</body>
+
+</html>

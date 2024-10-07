@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Profile Management System</title>
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    p {
+      color: white;
+    }
+
+    td {
+      color: white;
+    }
+    label{
+      color: rgb(115, 180, 255);
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <!-- partial:../../partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+        <a herf="index.html" class="sidebar-brand brand-logo" href="index.html" style="color: white;">NTMC PMS</a>
+        <a class="sidebar-brand brand-logo-mini" href="index.html" style="color: white">NP</a>
+      </div>
+      <ul class="nav" style="position: fixed;">
+        <li class="nav-item profile">
+          <div class="profile-desc">
+            <div class="profile-pic">
+              <div class="count-indicator">
+                <img class="img-xs rounded-circle " src="assets/images/logo.png" alt="">
+                <span class="count bg-success"></span>
+              </div>
+              <div class="profile-name">
+                <h5 class="mb-0 font-weight-normal">PMS</h5>
+
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li class="nav-item nav-category">
+          <span class="nav-link" style="color: whi;">Options</span>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="index.html">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-pr" aria-expanded="false"
+            aria-controls="ui-basic-pr">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-multiple-plus"></i>
+            </span>
+            <span class="menu-title">Profile</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-pr">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="add_profile.html">Add New Profile</a></li>
+              <li class="nav-item"> <a class="nav-link" href="manage_profile.html">Manage Profile</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-re" aria-expanded="false"
+            aria-controls="ui-basic-re">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-multiple-plus"></i>
+            </span>
+            <span class="menu-title">Investigation Report</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-re">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="investigation_report.html">Add New Report</a>
+              </li>
+              <li class="nav-item"> <a class="nav-link" href="manage_report.html">Manage Report</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-cg" aria-expanded="false"
+            aria-controls="ui-basic-cg">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-search"></i>
+            </span>
+            <span class="menu-title">Catagory</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-cg">
+            <ul class="nav flex-column sub-menu">
+
+              <li class="nav-item"> <a class="nav-link" href="manage_category.html">See All
+                  Catagory</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" href="#ui-basic-ov-re" aria-expanded="false"
+            aria-controls="ui-basic-ov-re">
+            <span class="menu-icon">
+              <i class="mdi mdi-account-multiple-plus"></i>
+            </span>
+            <span class="menu-title">Report</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-ov-re">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="overall_report.html">Overall Report</a></li>
+              <li class="nav-item"> <a class="nav-link" href="agency_report.html">Agency Wise Report</a></li>
+              <li class="nav-item"> <a class="nav-link" href="user_report.html">User Wise Report</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_navbar.html -->
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo-mini" href="index.html" style="color: white;">NP</a>
+        </div>
+        <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="mdi mdi-menu"></span>
+          </button>
+          <ul class="navbar-nav w-100">
+            <li class="nav-item w-100">
+              <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                <input type="text" class="form-control" placeholder="Search For Anything">
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-nav-right">
+
+            <li class="nav-item nav-settings d-none d-lg-block">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-view-grid"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown border-left">
+              <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown"
+                aria-expanded="false">
+                <i class="mdi mdi-email"></i>
+                <span class="count bg-success"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="messageDropdown">
+                <h6 class="p-3 mb-0">Messages</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="assets/images/a.png" alt="image" class="rounded-circle profile-pic">
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
+                    <p class="text-muted mb-0"> 1 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="assets/images/a.png" alt="image" class="rounded-circle profile-pic">
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
+                    <p class="text-muted mb-0"> 15 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <img src="assets/images/a.png" alt="image" class="rounded-circle profile-pic">
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+                    <p class="text-muted mb-0"> 18 Minutes ago </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">4 new messages</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown border-left">
+              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                data-toggle="dropdown">
+                <i class="mdi mdi-bell"></i>
+                <span class="count bg-danger"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="notificationDropdown">
+                <h6 class="p-3 mb-0">Notifications</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Event today</p>
+                    <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Settings</p>
+                    <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-link-variant text-warning"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Launch Admin</p>
+                    <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <p class="p-3 mb-0 text-center">See all notifications</p>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                <div class="navbar-profile">
+                  <img class="img-xs rounded-circle" src="assets/images/a.png" alt="">
+                  <p class="mb-0 d-none d-sm-block navbar-profile-name">User 01
+                  </p>
+                  <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                aria-labelledby="profileDropdown">
+                <h6 class="p-3 mb-0">Profile</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Account Settings</p>
+                  </div>
+                </a>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-plus-circle"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject mb-1">Log out</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+              </div>
+            </li>
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+            data-toggle="offcanvas">
+            <span class="mdi mdi-format-line-spacing"></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-----------------------------------View Start-------------------------->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title" style="color: yellow;"> প্রোফাইল </h3>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                <li class="breadcrumb-item active" aria-current="page">View Profile</li>
+              </ol>
+            </nav>
+          </div>
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="card-box">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="text-center card-box shadow-none border border-secoundary">
+                          <div class="member-card" style="padding: 5%; border: 1px solid; height: 300px; overflow-y: scroll;">
+                            <div class="avatar-xl member-thumb mb-3 mx-auto d-block">
+                              <img src="assets/images/a.png" class="rounded-circle img-thumbnail"
+                                alt="profile-image" style="
+                                  max-width: 100%;height: auto; border-radius: 14px !important; border: 1px !important; ">
+
+                            </div>
+
+                            <div class="">
+                              <h5 class="font-18 mb-1">Tanzil Hasan</h5>
+                              <h6 class="font-18 mb-1">(তানজিল হাসান)</h6>
+                              <p class="mb-2" style="color: aqua;">Others</p>
+                            </div>
+
+
+                            <hr style="border-color: white;" />
+
+                            <div class="text-left">
+                              <p class="text-muted font-13"><strong style="color: rgb(115, 180, 255);">বর্তমান অবস্থানঃ</strong>
+                                <span class="ml-1" style="color: white;">*************************</span>
+                              </p>
+
+                              <p class="text-muted font-13"><strong style="color: rgb(115, 180, 255)">জাতীয় পরিচয় পত্রঃ
+                                </strong><span class="ml-1" style="color: white;">******************** </span>
+                              </p>
+
+                              <p class="text-muted font-13"><strong style="color: rgb(115, 180, 255)">পাসপোর্টঃ </strong><span
+                                  class="ml-1" style="color: white">***************</span></p>
+
+                              <p class="text-muted font-13"><strong style="color: rgb(115, 180, 255)">মোবাইলঃ </strong><span
+                                  class="ml-1" style="color: white">**************</span></p>
+
+                              <p class="text-muted font-13"><strong style="color: rgb(115, 180, 255)">ই-টিনঃ </strong><span
+                                  class="ml-1" style="color: white">****************</span></p>
+
+                            </div>
+
+                          </div>
+                          <!-- end card-box -->
+
+                        </div>
+
+                      </div>
+                      <div class="col-md-9">
+                        <div class="text-center card-box shadow-none border border-secoundary">
+                          <div class="member-card" style="padding: 2%; border: 1px solid;  text-align: justify; height: 300px; overflow-y: scroll;">
+                            <p class="text-muted font-13"><strong style="color: rgb(115, 180, 255);">পরিচিতিঃ</strong>
+                            <p class="text-muted font-10"><p style="color: white;">তানজিম হাসান সাকিব অষ্টম শ্রেণিতে অধ্যয়নরত অবস্থায় অনূর্ধ্ব-১৩ জাতীয় দল গঠনের লক্ষ্যে মৌলভীবাজার জেলা স্টেডিয়ামে বাছাইয়ে উত্তীর্ণ হয়ে চট্টগ্রামের জহুর আহমেদ চৌধুরী স্টেডিয়ামে ৩ মাসের বোলিং কোর্স সম্পন্ন করে বিকেএসপিতে ভর্তি হন।
+
+বিকেএসপিতে অনুশীলনে থাকা অবস্থায় তিনি বাংলাদেশ জাতীয় অনূর্ধ্ব-১৭ ক্রিকেট দলের হয়ে ২০১৬ সালে ভারত এবং অনূর্ধ্ব-১৯ দলের হয়ে ২০১৯ সালে ইংল্যান্ড ও শ্রীলংকায় ত্রিদেশীয় সিরিজ খেলতে যান।
+
+ঢাকা প্রিমিয়ার ডিভিশন ক্রিকেট লিগ ২০১৮-১৯ টুর্নামেন্টে বাংলাদেশ ক্রীড়া শিক্ষা প্রতিষ্ঠান ক্রিকেট দলের হয়ে ২৭ মার্চ ২০১৯ সালে লিস্ট এ ক্রিকেটে স্থান অর্জন করেছিলেন।
+
+২০২৩ সালের এশিয়া কাপের জন্য বাংলাদেশের দলে বদলি হিসেবে নাম দেওয়া হয়। ২০২৩ এশিয়া কাপে ভারতের বিপক্ষে ১৫ সেপ্টেম্বর ২০২৩ সালে তার ওডিআই অভিষেক হয়।  </p>
+
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="col-md-12 mt-4">
+                        <div class="text-center card-box shadow-none border border-secoundary">
+                          <div class="member-card" style="padding: 2%; border: 1px solid; text-align: justify;">
+                            <form class="form-sample">
+                              <div class="row">
+                                <div class="col-md-12">
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">প্রোফাইল তৈরির কারন</label>
+                                    <div class="col-sm-9">
+                                      <p>**********************</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">পূর্ণ নাম (বাংলা)</label>
+                                    <div class="col-sm-9">
+                                      <p> তানজীল হাসান </p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">পূর্ণ নাম (ইংরেজি)</label>
+                                    <div class="col-sm-9">
+                                      <p> Tanzil Hasan</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">বয়স, জন্ম তারিখ</label>
+                                    <div class="col-sm-9">
+                                      <p>************** </p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">ধর্ম ও গোত্র </label>
+                                    <div class="col-sm-9">
+                                      <p>ইসলাম</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">বৈবাহিক অবস্থা</label>
+                                    <div class="col-sm-9">
+                                      <p>বিবাহিত</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">বর্তমান ঠিকানা</label>
+                                    <div class="col-sm-9">
+                                      <p>*****************</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">স্থায়ী ঠিকানা</label>
+                                    <div class="col-sm-9">
+                                      <p>************************* </p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">মোবাইল নাম্বার </label>
+                                    <div class="col-sm-9">
+                                      <p>**********</p>
+                                      <p>**************</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">শিক্ষাগত যোগ্যতা</label>
+                                    <div class="col-sm-9">
+                                      <p>মাধ্যমিক- সরকারি কে.জি ইউনিয়ন উচ্চ বিদ্যালয় উচ্চ মাধ্যমিক- ঢাকা কলেজ স্নাতক-
+                                        ঢাকা
+                                        বিশ্ববিদ্যালয় (অর্থনীতি) স্নাতকোত্তর- ঢাকা বিশ্ববিদ্যালয় (অর্থনীতি) </p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">পেশা</label>
+                                    <div class="col-sm-9">
+                                      <p>১) মহাসচিব, বাংলাদেশ জাতীয়তাবাদী দল বিএনপি; ২) সাবেক প্রতিমন্ত্রী, কৃষি
+                                        মন্ত্রণালয় এবং
+                                        বেসামরিক বিমান পরিবহন ও পর্যটন মন্ত্রণালয়; ৩) সাবেক সংসদ সদস্য, ঠাকুরগাঁও-১ আসন
+                                      </p>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">জাতীয় পরিচয়পত্র সংক্রান্ত তথ্য</label>
+                                    <div class="col-sm-9">
+                                      <table>
+                                        <tbody style="
+                                      font-size: 14px;">
+                                          <tr>
+                                            <td>ছবি</td>
+                                            <td>:</td>
+                                            <td><img class="img-responsive" src="assets/images/a.png" alt=""
+                                                style="max-width: 100%;
+                                                height: auto;"></td>
+                                          </tr>
+                                          <tr>
+                                            <td>নাম (বাংলা)</td>
+                                            <td>:</td>
+                                            <td>*********************</td>
+                                          </tr>
+                                          <tr>
+                                            <td>নাম (ইংরেজী)</td>
+                                            <td>:</td>
+                                            <td>*********************</td>
+                                          </tr>
+                                          <tr>
+                                            <td>এন আই ডি নং</td>
+                                            <td>:</td>
+                                            <td>***********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>ডিজিটাল এন আই ডি নং</td>
+                                            <td>:</td>
+                                            <td>***********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>জন্ম তারিখ</td>
+                                            <td>:</td>
+                                            <td>***********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>পেশা</td>
+                                            <td>:</td>
+                                            <td>ব্যবসা</td>
+                                          </tr>
+                                          <tr>
+                                            <td>ব্লাড গ্রুপ</td>
+                                            <td>:</td>
+                                            <td>*******</td>
+                                          </tr>
+                                          <tr>
+                                            <td>পিতা</td>
+                                            <td>:</td>
+                                            <td>***************</td>
+                                          </tr>
+                                          <tr>
+                                            <td>মাতা</td>
+                                            <td>:</td>
+                                            <td>***************</td>
+                                          </tr>
+                                          <tr>
+                                            <td>বর্তমান ঠিকানা</td>
+                                            <td>:</td>
+                                            <td> ***************</td>
+                                          </tr>
+                                          <tr>
+                                            <td>স্থায়ী ঠিকানা</td>
+                                            <td>:</td>
+                                            <td> **************</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">পাসপোর্ট সংক্রান্ত তথ্য</label>
+                                    <div class="col-sm-9">
+                                      <img class="img-responsive" id="nid_image" name="nid_image"
+                                        src="assets/images/a.png" style="max-width: 100%;
+                                        height: auto;">
+                                      <table class="table table-bordered" style="font-size: 14px;">
+                                        <tbody>
+                                          <tr>
+                                            <td>Name : ******************</td>
+                                            <td>Father's Name : **************** </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Mother's Name : *********</td>
+                                            <td>First Name : ************</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Last Name : *******</td>
+                                            <td>Gender : MALE</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Marital Status : MARRIED</td>
+                                            <td>Spouse Name : ***********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                              <p>Present Address : *************************
+                                              </p>
+                                            </td>
+                                            <td>
+                                              <p>Permanent Address : *************************</p>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>Birth ID : </td>
+                                            <td>Birth Date : **********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>NID : *************</td>
+                                            <td>Phone : ***********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Nationality : Bangladeshi</td>
+                                            <td>Profession : Business</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Religion : Islam</td>
+                                            <td>Passport : ***********</td>
+                                          </tr>
+                                          <tr>
+                                            <td>Previous Passport : **********</td>
+                                            <td>Passport Status : Document revoked due to Reissue</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <p style="color:#fc0000;background-color:#ffffff"></p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">***************************************</label>
+                                    <div class="col-sm-9">
+                                      <img src="assets/images/o.png" alt="" style="max-width: 100%;
+                                      height: auto;">
+                                      <br><br>
+                                      <img src="assets/images/o.png" alt="" style="max-width: 100%;
+                                      height: auto;">
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">পিতার পরিচয় </label>
+                                    <div class="col-sm-9">
+                                      <img src="assets/images/a.png" alt="" style="max-width: 100%;
+                                      height: auto;">
+                                      <br><br>
+                                      <p>১৯৬২-৬৬ সালে পরপর দুই বার পূর্ব পকিস্তানের প্রাদেশিক আইন সভার সদস্য নির্বাচিত
+                                        হয়েছিলেন।
+                                        তিনি ঠাকুরগাঁও পৌরসভায় দীর্ঘ ১৭ বছর মেয়র হিসেবে দায়িত্ব পালন করেছিলেন। ১৯৭৯
+                                        সালে তিনি
+                                        দিনাজপুর-৪ ও ১৯৮৮ সালে ঠাকুরগাঁও-২ আসন থেকে জাতীয় সংসদ সদস্য নির্বাচিত
+                                        হয়েছিলেন। তিনি
+                                        বাংলাদেশ সরকারের মন্ত্রীসভার কৃষিমন্ত্রী, সমাজকল্যাণ মন্ত্রী এবং মৎস্য ও পশু
+                                        সম্পদ মন্ত্রী
+                                        হিসেবে দায়িত্ব পালন করেছিলেন।</p>
+
+                                      <p>শিক্ষাগত যোগ্যতাঃ মাধ্যমিক- ঠাকুরগাঁও সরকারি বালক উচ্চ বিদ্যালয়</p>
+
+                                      <p>স্নাতক- কলকাতা বিশ্ববিদ্যালয়</p>
+
+                                      <p>জন্ম তারিখঃ ২৮/০২/১৯২১</p>
+
+                                      <p>মৃত্যু তারিখঃ ১৯/০১/১৯৯৭</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">ফেসবুক অ্যাকাউন্ট </label>
+                                    <div class="col-sm-9">
+                                      <p>https://www.facebook.com/</p>
+                                      <br>
+                                      <img src="assets/images/x.png" alt="" style="max-width: 100%;
+                                      height: auto;">
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">প্রয়োজনীয় তথ্য সমূহ</label>
+                                    <div class="col-sm-9">
+                                      <p>১।</p>
+                                      <br>
+                                      <img src="assets/images/e.png" alt="" style="max-width: 100%;
+                                      height: auto;">
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">প্রোফাইল তৈরির তারিখ </label>
+                                    <div class="col-sm-9">
+                                      <p>০২/০২/২০২৩</p>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">প্রোফাইল সিরিয়াল নাম্বার</label>
+                                    <div class="col-sm-9">
+                                      <p>2222</p>
+                                    </div>
+                                  </div>
+
+                                </div>
+                            </form>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Design and Developed By
+              <img src="assets/images/ops.png" style="height: 20px;"></span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Copyright © 2019 - 2023 <a
+                href="http://ntmc.gov.bd/">NTMC.</a> All rights reserved</span>
+          </div>
+        </footer>
+      </div>
+      <!-- View ends -->
+    </div>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <script src="assets/js/html2pdf.bundle.min.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+</body>
+
+</html>
